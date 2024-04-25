@@ -1,13 +1,7 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import useScript from '../hooks/useScript';
-
-declare global {
-  interface Window {
-    kakao: any;
-  }
-}
 
 export default function KakaoMap() {
   const apiKey = 'f299d9526d51a6d72d276b0883a57df4';
