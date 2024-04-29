@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 
+//script를 로드하는 훅
 export default function useScript(src: string) {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState(null);
