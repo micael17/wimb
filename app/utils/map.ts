@@ -49,7 +49,7 @@ export function loadMap(lat: number, long: number) {
     const ps = new kakao.maps.services.Places(map);
 
     // 지도에 idle 이벤트를 등록합니다
-    kakao.maps.event.addListener(map, 'idle', searchPlaces);
+    // kakao.maps.event.addListener(map, 'idle', searchPlaces);
 
     // 커스텀 오버레이의 컨텐츠 노드에 css class를 추가합니다
     contentNode.className = 'placeinfo_wrap';
@@ -118,7 +118,6 @@ export function loadMap(lat: number, long: number) {
         pagination.nextPage();
       }
 
-      console.log(data);
       if (status === kakao.maps.services.Status.OK) {
         // 정상적으로 검색이 완료됐으면 지도에 마커를 표출합니다
         displayPlaces(data);
@@ -137,7 +136,6 @@ export function loadMap(lat: number, long: number) {
 
       if (status === kakao.maps.services.Status.OK) {
         // 정상적으로 검색이 완료됐으면 지도에 마커를 표출합니다
-        console.log(data);
         for (var i = 0; i < data.length; i++) {
           displayMarker(data[i]);
         }

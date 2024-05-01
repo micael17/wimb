@@ -1,5 +1,6 @@
 'use client';
 
+import React from 'react';
 import { useEffect, useState } from 'react';
 import useScript from '../hooks/useScript';
 import { loadMap } from '../utils/map';
