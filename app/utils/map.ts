@@ -252,7 +252,7 @@ export function loadMap(lat: number, long: number) {
     // 각 카테고리에 클릭 이벤트를 등록합니다
     function addCategoryClickEvent() {
       const category = document.getElementById('category') as HTMLElement;
-      console.log('category ', category);
+      if (!category) return;
       const children = category.children;
 
       for (let i = 0; i < children.length; i++) {
@@ -264,7 +264,6 @@ export function loadMap(lat: number, long: number) {
 
     // 카테고리를 클릭했을 때 호출되는 함수입니다
     function onClickCategory(this: any) {
-      console.log(this.id, this.className);
       let id = this.id,
         className = this.className;
 

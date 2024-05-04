@@ -2,8 +2,9 @@
 
 import React from 'react';
 import { useEffect, useState } from 'react';
-import useScript from '../hooks/useScript';
-import { loadMap } from '../utils/map';
+import useScript from '../../hooks/useScript';
+import { loadMap } from '../../utils/map';
+import style from './kakaoMap.module.css';
 
 declare global {
   interface Window {
@@ -43,30 +44,30 @@ export default function KakaoMap() {
   return (
     <div className="map_wrap">
       <div id="map" style={{ width: '100%', height: '100%' }}></div>
-      <input id="searchBox" type="text"></input>
-      <ul id="category">
+      <input className={style.searchBox} type="text"></input>
+      <ul className={style.category}>
         <li id="BK9" data-order="0">
-          <span className="category_bg bank"></span>
+          <span className={(style.category_bg, style.bank)}></span>
           은행
         </li>
         <li id="MT1" data-order="1">
-          <span className="category_bg mart"></span>
+          <span className={(style.category_bg, style.mart)}></span>
           마트
         </li>
         <li id="PM9" data-order="2">
-          <span className="category_bg pharmacy"></span>
+          <span className={(style.category_bg, style.pharmacy)}></span>
           약국
         </li>
         <li id="OL7" data-order="3">
-          <span className="category_bg oil"></span>
+          <span className={(style.category_bg, style.oil)}></span>
           주유소
         </li>
         <li id="CE7" data-order="4">
-          <span className="category_bg cafe"></span>
+          <span className={(style.category_bg, style.cafe)}></span>
           카페
         </li>
         <li id="CS2" data-order="5">
-          <span className="category_bg store"></span>
+          <span className={(style.category_bg, style.store)}></span>
           편의점
         </li>
       </ul>
