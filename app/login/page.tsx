@@ -14,9 +14,9 @@ export default function LoginPage() {
     const supabase = createClient();
     let { data: member, error } = await supabase
       .from('member')
-      .select('id')
-      .eq('mem_id', loginId)
-      .eq('mem_pwd', loginPwd);
+      .select('member_id')
+      .eq('id', loginId)
+      .eq('password', loginPwd);
     if (member && member.length > 0) {
       router.push('/');
     }

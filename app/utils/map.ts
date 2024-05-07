@@ -48,8 +48,7 @@ export function loadMap(lat: number, long: number) {
     // 장소 검색 객체를 생성합니다
     const ps = new kakao.maps.services.Places(map);
 
-    // 지도에 idle 이벤트를 등록합니다
-    // kakao.maps.event.addListener(map, 'idle', searchPlaces);
+    kakao.maps.event.addListener(map, 'idle', setRefreshBtnVisible);
 
     // 커스텀 오버레이의 컨텐츠 노드에 css class를 추가합니다
     contentNode.className = 'placeinfo_wrap';
@@ -69,10 +68,7 @@ export function loadMap(lat: number, long: number) {
     if (searchBox) {
       searchBox.addEventListener('keypress', function (event) {
         if (event.key === 'Enter') {
-          // Enter 키를 눌렀을 때 실행할 코드를 여기에 작성합니다.
-          // 예를 들어, 입력된 검색어를 가져와서 검색 기능을 실행할 수 있습니다.
           var searchText = searchBox.value;
-
           if (searchText) {
             const options = {
               // size: 15, 기본값 15 (최대치)
@@ -212,6 +208,8 @@ export function loadMap(lat: number, long: number) {
         markers[i].setMap(null);
       }
       markers = [];
+
+      setRefreshBtnVisible();
     }
 
     // 클릭한 마커에 대한 장소 상세정보를 커스텀 오버레이로 표시하는 함수입니다
@@ -257,7 +255,6 @@ export function loadMap(lat: number, long: number) {
 
       for (let i = 0; i < children.length; i++) {
         const child = children[i] as HTMLElement;
-        console.log(child);
         child.onclick = onClickCategory;
       }
     }
@@ -293,6 +290,20 @@ export function loadMap(lat: number, long: number) {
       if (el) {
         el.className = 'on';
       }
+    }
+
+    function setRefreshBtnVisible() {
+      let value = 'hidden';
+      if (markers.length > 0) {
+        value = 'visible';
+      }
+      /*
+        이미 검색 플래그가 꽂혀있는지 확인하고
+        있으면 visible 속성을 준다.
+        없으면 hidden
+      */
+      const refreshBtn = document.getElementById('refresh') as HTMLInputElement;
+      refreshBtn.style.visibility = value;
     }
   });
 }

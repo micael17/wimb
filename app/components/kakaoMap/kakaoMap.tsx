@@ -2,9 +2,10 @@
 
 import React from 'react';
 import { useEffect, useState } from 'react';
-import useScript from '../../hooks/useScript';
-import { loadMap } from '../../utils/map';
+import useScript from '@/hooks/useScript';
+import { loadMap } from '@/utils/map';
 import style from './kakaoMap.module.css';
+import { RepeatIcon } from '@chakra-ui/icons';
 
 declare global {
   interface Window {
@@ -44,8 +45,7 @@ export default function KakaoMap() {
   return (
     <div className="map_wrap">
       <div id="map" style={{ width: '100%', height: '100%' }}></div>
-      <input className={style.searchBox} type="text"></input>
-      <ul className={style.category}>
+      <ul id="category" className={style.category}>
         <li id="BK9" data-order="0">
           <span className={(style.category_bg, style.bank)}></span>
           은행
@@ -71,6 +71,12 @@ export default function KakaoMap() {
           편의점
         </li>
       </ul>
+      <input id="searchBox" className={style.searchBox} type="text"></input>
+
+      <button id="refresh" className={style.refreshButton}>
+        <RepeatIcon className={style.icon} />
+        재검색
+      </button>
     </div>
   );
 }

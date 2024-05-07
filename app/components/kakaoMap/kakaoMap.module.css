@@ -1,6 +1,6 @@
 .searchBox {
   position: absolute;
-  top: 90px;
+  top: 12%;
   left: 50%;
   transform: translateX(-50%);
   z-index: 3;
@@ -8,7 +8,7 @@
 
 .category {
   position: absolute;
-  top: 10px;
+  top: 1%;
   left: 50%;
   transform: translateX(-50%);
   border-radius: 5px;
@@ -66,4 +66,26 @@
 }
 .category li.on .category_bg {
   background-position-x: -46px;
+}
+
+/* 버튼 스타일 */
+.refreshButton {
+  visibility: hidden;
+  vertical-align: middle;
+  position: absolute;
+  bottom: 1%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 4;
+  border-radius: 20px;
+  padding: 10px 14px;
+  border: none;
+  background-color: rgb(0, 60, 255);
+  color: #fff;
+}
+
+/* 아이콘 스타일 */
+.icon {
+  margin-bottom: 1px;
+  margin-right: 10px;
 }
